@@ -22,7 +22,7 @@ jobs:
           cd twa
           sed -i 's|https://svgomg.firebaseapp.com|https://mthnaapk.netlify.app|g' app/build.gradle
           sed -i 's|com.chromeos.svgomg|com.muthanna.masar|g' app/build.gradle
-          sed -i 's|SVGOMG|MASAR|g' app/src/main/res/values/strings.xml
+          find . -name "strings.xml" | xargs sed -i 's|SVGOMG|MASAR|g'
 
       - name: Build Debug APK
         run: |
