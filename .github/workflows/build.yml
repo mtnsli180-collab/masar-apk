@@ -10,11 +10,8 @@ jobs:
 
       - uses: actions/setup-java@v4
         with:
-          java-version: '11'
+          java-version: '17'
           distribution: 'temurin'
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
 
       - name: Clone TWA Template
         run: |
@@ -29,6 +26,8 @@ jobs:
           cd twa
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
+        env:
+          ANDROID_HOME: /usr/local/lib/android/sdk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
