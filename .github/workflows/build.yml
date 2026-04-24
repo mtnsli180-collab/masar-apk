@@ -20,7 +20,8 @@ jobs:
           sed -i 's|https://svgomg.firebaseapp.com|https://mthnaapk.netlify.app|g' app/build.gradle
           sed -i 's|com.chromeos.svgomg|com.muthanna.masar|g' app/build.gradle
           grep -rl "SVGOMG" . | xargs sed -i 's|SVGOMG|MASAR|g' || true
-          ./gradlew wrapper --gradle-version=7.4 --no-daemon
+          sed -i 's|gradle-4.6-all|gradle-7.4-all|g' gradle/wrapper/gradle-wrapper.properties
+          sed -i 's|services.gradle.org/distributions/gradle-4.6|services.gradle.org/distributions/gradle-7.4|g' gradle/wrapper/gradle-wrapper.properties
 
       - name: Build APK
         run: |
